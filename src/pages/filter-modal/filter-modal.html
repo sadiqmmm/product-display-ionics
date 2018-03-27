@@ -1,19 +1,26 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-button end>
-      <button ion-button (click) ="closeModal()">
+    <ion-buttons end>
+      <button ion-button (click)="closeModal()">
         <ion-icon name="close">
-          
+
         </ion-icon>
       </button>
-    </ion-button>
+    </ion-buttons>
     <ion-title>FilterModal</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
-
+  <ion-list>
+    <ion-item> 
+      <ion-label>Female</ion-label>
+      <ion-toggle [(ngModel)]="femaleSelected"> </ion-toggle> 
+    </ion-item>
+    <ion-item>
+      <ion-label>Male</ion-label>
+      <ion-toggle  [(ngModel)]="maleSelected"> </ion-toggle>
+    </ion-item>
+  </ion-list>
 </ion-content>

@@ -29,6 +29,28 @@ export class HomePage {
   }
   openFilterModal() {
     let openFilterModal = this.modalCtrl.create(FilterModalPage);
+    openFilterModal.onDidDismiss((filterState)=>{
+      this.productProvider.getProducts()
+        .subscribe((allProduct)=> {
+          let products = allProduct;
+          if(filterState.maleSelected && filterState.femaleSelected){
+            this.allProducts= products;
+            return;
+          }else if(!filterState.maleSelected && !filterState.femaleSelected){
+            this.allProducts=[];
+            return;
+          }else if(filterState.maleSelected && !filterState.femaleSelected){
+            this.allProducts = products.filter((product)=>{
+              return product.gender !=="female";
+            });
+          }else {
+            this.allProducts = products.filter((product)=>{
+              return product.gender !=="male";
+            });
+          }
+        });
+      
+    });
     openFilterModal.present();
   }
 
