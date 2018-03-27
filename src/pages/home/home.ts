@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 import { ProductProvider } from '../../providers/product/product';
 import { ProductDetailPage } from '../product-detail/product-detail';
+import { FilterModalPage } from '../filter-modal/filter-modal';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -9,7 +11,9 @@ import { ProductDetailPage } from '../product-detail/product-detail';
 export class HomePage {
   public allProducts: any = [];
 
-  constructor(public navCtrl: NavController, private productProvider: ProductProvider) {
+  constructor(public navCtrl: NavController,
+    private productProvider: ProductProvider,
+    private modalCtrl: ModalController) {
 
   }
   ionViewDidLoad() {
@@ -22,6 +26,10 @@ export class HomePage {
     this.navCtrl.push(ProductDetailPage, {
       productDetails: product
     })
+  }
+  openFilterModal() {
+    let openFilterModal = this.modalCtrl.create(FilterModalPage);
+    openFilterModal.present();
   }
 
 }

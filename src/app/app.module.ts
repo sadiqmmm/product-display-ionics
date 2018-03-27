@@ -7,6 +7,7 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { ProductDetailPage } from '../pages/product-detail/product-detail';
+import { FilterModalPage } from '../pages/filter-modal/filter-modal';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,7 +23,8 @@ import { ProductProvider } from '../providers/product/product';
     ContactPage,
     HomePage,
     TabsPage,
-    ProductDetailPage
+    ProductDetailPage,
+    FilterModalPage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import { ProductProvider } from '../providers/product/product';
     ProductDetailPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    FilterModalPage
   ],
   providers: [
     StatusBar,
